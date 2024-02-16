@@ -1,209 +1,166 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[2]:
 
 
-# import cv2
-# from google.colab.patches import cv2_imshow
-
-# In[ ]:
+pip install opencv-python
 
 
-#read and diplay image
-#Type ur code here
+# In[5]:
 
 
-# In[ ]:
+import cv2
+color_img = cv2.imread(r"C:\Users\rthir\Downloads\cute cat.jpg",1)
+cv2.imshow('colorimage',color_img)
+cv2.waitKey(0)
 
 
-#WRITE AN IMAGE
-#Type ur code here
-
-# Save the original image to a file
-original_output_path = "image path"
-#Type ur code here
-cv2.imwrite(original_output_path, image)
-print(f"Original image saved to: {original_output_path}")
-
-# Read the saved image
-#Type ur code here
-
-# Display the saved image
-#Type ur code here
-
-# Save the saved image to a new file
-#Type ur code here
-cv2.imwrite(new_output_path, saved_image)
-print(f"Saved image saved to: {new_output_path}")
+# In[5]:
 
 
-# In[ ]:
+import cv2
+image=cv2.imread(r"C:\Users\rthir\Downloads\cute cat.jpg",0)
+cv2.imwrite('Cat.jpg',image)
 
 
-#ACCESSING ROWS AND COLUMNS
-#Type ur code here
-# Get the shape of the image (rows, columns, channels)
-
-print(f"Image Shape: Rows={rows}, Columns={columns}, Channels={channels}")
-
-# Assign random values to pixels in the first row and first column
-                                                                 # Random values for the first row
-image[:, 0] = np.random.randint(0, 256, size=(rows, channels))  # Random values for the first column
-#Type ur code here
-# Display the modified image
-#Type ur code here
+# In[9]:
 
 
-# In[ ]:
+import cv2
+image = cv2.imread(r"C:\Users\rthir\Downloads\cute cat.jpg",1)
+print(image.shape)
 
 
-#Cut and paste the image
-
-#Type ur code here
-# Display the original image
-
-#Type ur code here
-# Get the shape of the image (rows, columns, channels)
-#Type ur code here
-
-# Define the region to cut (example: top-left corner, width=100, height=100)
-cut_region = image[0:100, 0:100]
-
-# Paste the cut region back onto the image (example: paste at (200, 200))
-image[] = cut_region
-#Display the modified image
-#Type ur code here
+# In[11]:
 
 
-# In[ ]:
+import cv2
+import random
+image = cv2.imread(r"C:\Users\rthir\Downloads\cute cat.jpg",1)
+for i in range(100):
+    for j in range(image.shape[1]):
+        image[i][j] = [random.randint(0,255),random.randint(0,255),random.randint(0,255)]
+cv2.imshow('part image',image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 
-#######COLOR CONVERSION
-##Convert BGR and RGB to HSV and GRAY
-#Type ur code here
-# Convert BGR to RGB
-image_rgb = (image_bgr, cv2.COLOR_BGR2RGB)
-
-# Convert BGR to HSV
-image_hsv_bgr = cv2.cvtColor(image_bgr, )
-
-# Convert RGB to HSV
-#Type ur code here
-
-# Convert BGR to Grayscale
-#Type ur code here
-
-# Convert RGB to Grayscale
-#Type ur code here
-
-# Display the original BGR image
-#Type ur code here
-# Display the HSV image (BGR and RGB converted)
-#Type ur code here
-# Display the Grayscale image (BGR and RGB converted)
-print("BGR TO GRAY")
-cv2_imshow(image_gray_bgr)
-print("RGB TO GRAY")
-cv2_imshow(image_gray_rgb)
+# In[3]:
 
 
-# In[ ]:
+import cv2
+image = cv2.imread(r"C:\Users\rthir\Downloads\cute cat.jpg",1)
+image=cv2.resize(image,(400,400))
+tag = image[300:400,300:400]
+image[50:150,50:150] = tag
+cv2.imshow('partimage1',image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 
-##Convert HSV to RGB and BGR
-#Type ur code here
-# Convert BGR to HSV
-#Type ur code here
-# Convert HSV to RGB
-#Type ur code here
-# Convert HSV to BGR
-image_bgr_hsv = cv2.cvtColor(image_hsv, cv2.COLOR_HSV2BGR)
-
-# Display the original BGR image
-#Type ur code here
-cv2_imshow(image_bgr)
-
-# Display the HSV image
-#Type ur code here
-cv2_imshow(image_hsv)
-
-# Display the RGB image (HSV to RGB)
-print("HSV TO RGB")
-#Type ur code here
-
-# Display the BGR image (HSV to BGR)
-
-#Type ur code here
+# In[4]:
 
 
-# In[ ]:
+import cv2
+image = cv2.imread(r"C:\Users\rthir\Downloads\cute cat.jpg",1)
+cv2.imshow('Original Image',image)
+
+hsv = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
+cv2.imshow('BGR2HSV',hsv)
+
+hsv1 = cv2.cvtColor(image,cv2.COLOR_RGB2HSV)
+cv2.imshow('RGB2HSV',hsv1)
+
+gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+cv2.imshow('BGR2GRAY',gray)
+
+gray1 = cv2.cvtColor(image,cv2.COLOR_RGB2GRAY)
+cv2.imshow('RGB2GRAY',gray1)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 
-##Convert RGB and BGR to YCrCb
-#Type ur code here
+# In[6]:
 
-# Convert BGR to YCrCb
-image_ycrcb_bgr = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2YCrCb)
 
-# Convert RGB to YCrCb
-#Type ur code here
-                                                                # Convert BGR to RGB
-image_ycrcb_rgb = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2YCrCb)
+import cv2
+image = cv2.imread(r"C:\Users\rthir\Downloads\cute cat.jpg")
+image = cv2.resize(image,(300,200))
 
-# Display the original BGR image
-#Type ur code here
+image = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
+cv2.imshow('Original HSV Image',image)
 
-# Display the YCrCb image (BGR to YCrCb)
-#Type ur code here
+RGB = cv2.cvtColor(image,cv2.COLOR_HSV2RGB)
+cv2.imshow('2HSV2BGR',RGB)
 
-# Display the YCrCb image (RGB to YCrCb)
+BGR = cv2.cvtColor(image,cv2.COLOR_HSV2BGR)
+cv2.imshow('HSV2RGB',BGR)
 
-#Type ur code here
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+# In[7]:
+
+
+import cv2
+image = cv2.imread(r"C:\Users\rthir\Downloads\cute cat.jpg")
+image = cv2.resize(image,(300,200))
+cv2.imshow('Original RGB Image',image)
+
+YCrCb1 = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
+cv2.imshow('RGB-2-YCrCb',YCrCb1)
+
+YCrCb2 = cv2.cvtColor(image, cv2.COLOR_RGB2YCrCb)
+cv2.imshow('BGR-2-YCrCb',YCrCb2)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+# In[8]:
+
+
+import cv2
+image = cv2.imread(r"C:\Users\rthir\Downloads\cute cat.jpg",1)
+image = cv2.resize(image,(300,200))
+
+R = image[:,:,2]
+G = image[:,:,1]
+B = image[:,:,0]
+
+cv2.imshow('R-Channel',R)
+cv2.imshow('G-Channel',G)
+cv2.imshow('B-Channel',B)
+
+merged = cv2.merge((B,G,R))
+cv2.imshow('Merged RGB image',merged)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 
 # In[ ]:
 
 
-#Split and Merge RGB Image
+import cv2
+image = cv2.imread(r"C:\Users\rthir\Downloads\cute cat.jpg",1)
+image = cv2.resize(image,(300,200))
+image = cv2.cvtColor(image,cv2.COLOR_RGB2HSV)
 
+H,S,V=cv2.split(image)
 
-## Split the RGB channels
-blue_channel, green_channel, red_channel = cv2.split(image_bgr)
+cv2.imshow('Hue',H)
+cv2.imshow('Saturation',S)
+cv2.imshow('Value',V)
 
-# Display the original BGR image
-#Type ur code here
+merged = cv2.merge((H,S,V))
+cv2.imshow('Merged',merged)
 
-# Display the individual RGB channels
-print("BLUE CHANNEL")
-cv2_imshow(blue_channel)
-#Type ur code here
-
-# Merge the RGB channels back together
-
-#Type ur code here
-# Display the merged image
-#Type ur code here
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 
 # In[ ]:
-
-
-##Split and merge HSV Image
-#Type ur code here
-# Convert BGR to HSV
-#Type ur code here
-
-# Split the HSV channels
-#Type ur code here
-# Display the original BGR image and the converted HSV image
-print("ORIGINAL IMAGE")
-cv2_imshow(image_bgr)
-print("HSV IMAGE")
-cv2_imshow(image_hsv)
-
-# Display the individual HSV channels
-#Type ur code here
-
-
-# In[ ]:
-
-
-
-
